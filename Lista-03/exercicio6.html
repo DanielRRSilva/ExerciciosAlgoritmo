@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio6</title>
+</head>
+<body>
+    <p>Qual o ki base do guerreiro Sayajin</p>
+    <input type="number" id="kiBase">
+    <p>Transformar em:</p>
+    <button onclick="calcularForma1()">SSJ</button>
+    <button onclick="calcularForma2()">SSJ2</button>
+    <button onclick="calcularForma3()">SSJ3</button><br><br>
+    <div id="exibirKi"></div>
+</body>
+</html>
+
+<script>
+    function calcularForma1() {
+        var ki = Number(kiBase.value)
+        var forma1 = ki * 50 
+
+        exibirKi.innerHTML = 
+        `
+        Após se transformar em <u>SSJ</u>, o ki desse Sayajin passa a ser de <u>${forma1}</u>
+        ` 
+    }
+    
+    function calcularForma2() {
+        var ki = Number(kiBase.value)
+        var forma2 = ki * 100
+
+        exibirKi.innerHTML = 
+        `
+        Após se transformar em <u>SSJ2</u>, o ki desse Sayajin passa a ser de <u>${forma2}</u>
+        `
+    }
+    
+    function calcularForma3() {
+        var ki = Number(kiBase.value)
+        var forma3 = ki * 200
+
+        exibirKi.innerHTML = 
+        `
+        Após se transformar em <u>SSJ3</u>, o ki desse Sayajin passa a ser de <u>${forma3}</u>
+        `
+    }
+</script>

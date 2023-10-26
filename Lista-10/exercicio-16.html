@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio16</title>
+</head>
+<body>
+    <label for="entradaPessoas">Quantas pessoas vão entrar no carro?</label>
+    <input type="text" id="entradaPessoas"><br><br>
+    <button onclick="repetir()">#Partiu Carona</button><br><br>
+    <div id="exibirFrase"></div>
+</body>
+</html>
+
+<script>
+    function repetir() {
+        var pessoas = Number(entradaPessoas.value)
+        var passageiro = 1
+        exibirFrase.innerHTML = ``
+        while(passageiro <= pessoas) {
+            if(passageiro == 1) {
+                exibirFrase.innerHTML += `Entrou o ${passageiro} passageiro(que é o(a) motorista)<br>`   
+            }else if(passageiro <= 5) {
+                exibirFrase.innerHTML += `Entrou o ${passageiro} passageiro<br>` 
+            }else {
+                exibirFrase.innerHTML += `O ${passageiro} passageiro terá que esperar!<br>`
+            }
+            passageiro += 1 
+        }
+    }    
+</script>

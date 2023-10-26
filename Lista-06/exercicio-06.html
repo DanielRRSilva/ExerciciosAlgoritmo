@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio6</title>
+</head>
+<body>
+    <label for="">Qual time grande de São Paulo você torce?</label>
+    <input type="text" id="timeUsuario"><br><br>
+    <button onclick="timeCoracao()">Fale sobre esse time</button><br><br>
+    <div id="exibirTime"></div>
+</body>
+</html>
+
+<script>
+    function timeCoracao() {
+        var time = timeUsuario.value
+
+        if(time == "Corinthians") {
+            exibirTime.innerHTML = 
+            `
+            <div style = "background-color: black; color: white;">Salve o Corinthians</div>
+            `
+        }else if(time == "Palmeiras") {
+            exibirTime.innerHTML = 
+            `
+            <div style = "background-color: green; color: white;">Salve o alviver inponente</div>
+            `
+        }else if(time == "Santos") {
+            exibirTime.innerHTML = 
+            `
+            <div style = "background-color: white; color: black;">Agora quem dá a bola é o Santos</div>
+            `
+        }else {
+            exibirTime.innerHTML = 
+            `
+            <div style = "background-color: black; color: red;">Salve o Tricolor paulista</div>
+            `
+        }
+    }
+</script>

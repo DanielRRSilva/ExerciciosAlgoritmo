@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio26</title>
+</head>
+<body>
+    <label for="numeroUsuario">Informe um numero entre 10 e 500</label>
+    <input type="text" id="numeroUsuario"><br><br>
+    <button onclick="somar()">Somar pares</button>
+    <div id="exibirResultado"></div>   
+</body>
+</html>
+
+<script>
+    function somar() {
+        var numeroUser = Number(numeroUsuario.value)
+        var numero = 1
+        var somaPares = 0
+        exibirResultado.innerHTML = `` 
+        if(numeroUser < 10 || numeroUser > 500) {
+            alert(`número inválido`)
+        }else {
+            while(numero <= numeroUser) {
+                if(numero % 2 == 0) {
+                    exibirResultado.innerHTML += `${numero}<br>`
+                    somaPares += numero
+                }
+                numero += 1
+            }
+            exibirResultado.innerHTML += `Soma dos pares: ${somaPares}`
+        }
+    }
+</script>

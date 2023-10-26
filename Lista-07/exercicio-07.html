@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio7</title>
+</head>
+<body>
+    <label for="loginUsuario">Qual seu login?</label><br><br>
+    <input type="text" id="loginUsuario"><br><br>
+    <label for="senhaUsuario">Qual a sua senha?</label>
+    <input type="password" id="senhaUsuario"><br><br>
+    <button>Entrar</button>
+</body>
+</html>
+
+<script>
+    function logar() {
+        var login = loginUsuario.value
+        var senha = senhaUsuario.value
+
+        if(login == "SPTech" && senha == "digital") {
+            alert(`Usuário autenticado com sucesso.`)
+        }else {
+            alert(`Falha na autenticação.`)
+        }
+    }
+</script>

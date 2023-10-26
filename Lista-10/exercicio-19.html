@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio19</title>
+</head>
+<body>
+    <label for="xicarasUsuario">Quantas xicaras de café com leite você já bebeu na vida?</label>
+    <input type="text" id="xicarasUsuario"><br><br>
+    <button onclick="contar()">Ver a quantidade</button><br><br>
+    <div id="exibirXicaras"></div>
+</body>
+</html>
+
+<script>
+    function contar() {
+        var xicaras = Number(xicarasUsuario.value)
+        var colheres = 1
+        exibirXicaras.innerHTML = ``
+        while(colheres <= xicaras) {
+            exibirXicaras.innerHTML += `<img style = "width: 220px; height: 160px;" src="https://minhasaude.proteste.org.br/wp-content/uploads/2023/06/colher-carregando-punhado-de-leite-em-po-sobre-fundo-branco.jpg" alt="leiteEmPó">`
+            exibirXicaras.innerHTML += `<img style = "width: 220px; height: 160px;" src="https://img.freepik.com/fotos-premium/cafe-em-po-na-colher-de-madeira-em-branco_253984-1697.jpg" alt="café">`
+            exibirXicaras.innerHTML += `<img style = "width: 220px; height: 160px;" src="https://img.freepik.com/fotos-premium/cafe-em-po-na-colher-de-madeira-em-branco_253984-1697.jpg" alt="café">`
+            colheres += 1
+        }
+    }
+</script>

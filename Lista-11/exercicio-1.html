@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio1</title>
+</head>
+<body>
+    <label for="nomeFruta">Digite o nome de uma fruta:</label>
+    <input type="text" id="nomeFruta"><br><br>
+    <button onclick="pesquisar()">Pesquisar</button><br><br>
+    <div id="exibirFruta"></div>
+</body>
+</html>
+
+<script>
+    var listaFruta = ['Banana', 'Maçã', 'Abacaxi', 'Morango', 'Mamão', 'Manga']
+    function pesquisar() {
+        var nome = nomeFruta.value
+        for(var procurar = 0; procurar <= listaFruta.length; procurar += 1){
+            if( listaFruta[procurar]== nome){
+                exibirFruta.innerHTML = `A fruta ${nome} existe na lista.`
+                break
+            }else {
+                exibirFruta.innerHTML = `Não existe a fruta ${nome} na lista.`
+            }
+        }
+    }
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio4</title>
+</head>
+<body>
+    <button onclick="moverEsquerda()">Mover p/ Esquerda</button>
+    <button onclick="moverDireita()">Mover p/ Direita</button>
+    <label for="">Quantos pixels <input type="number" id="pixelsMovimento"></label><br>
+    <img id="bartSkate" style="margin-left: 0; height: 500px;" src="https://i.pinimg.com/originals/8c/76/f5/8c76f5371c878297e22546327d32a2d5.png" alt="BartNoSkate">
+</body>
+</html>
+
+<script>
+    var margin = 0
+    function moverDireita() {
+        margin += Number(pixelsMovimento.value)
+        bartSkate.style.marginLeft = margin + "px"
+    }
+    function moverEsquerda() {
+        margin -= Number(pixelsMovimento.value)
+        bartSkate.style.marginLeft = margin + "px"
+    }
+</script>

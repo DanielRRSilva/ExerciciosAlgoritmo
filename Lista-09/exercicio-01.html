@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio1</title>
+</head>
+<body>
+    <img id="imagem" style="width: 500px; height: 250px;" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1CJV5Xfhg2bT2nlEsGgGr26ffkl3lMdus7wIo3lbwXl6QZ2MkCRhbex3bO2mqfyHEtO9i9QtLCGDusXSPqxvDS6lGs8Cjeru0Sj5C_p0RIs7q6K9USDBPftqxOkBKMpMawKDP7ar6qkZ8OWWdZ0ksZy_4Przy9dPAZXlBddqr6Fc9xkwGJ55ZYfhY/s1024/Sonic%20imagem%20png.png" alt="Sonic"><br>
+    <button onclick="aumentar()">Aumentar a largura</button>
+    <button onclick="diminuir()">Reduzir largura</button>
+</body>
+</html>
+
+<script>
+    var largura = 500
+    function aumentar() {
+        largura += 10
+        imagem.style.width = largura + "px"
+    }
+
+    function diminuir() {
+        largura -= 10
+        imagem.style.width = largura + "px"
+    }
+</script>

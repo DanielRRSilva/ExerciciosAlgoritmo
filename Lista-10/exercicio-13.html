@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio13</title>
+</head>
+<body>
+    <label for="intervaloMusculacao">De quantos em quanto dias você faz musculação?</label>
+    <input type="number" id="intervaloMusculacao"><br><br>
+    <button onclick="calcularRotina()">Exibir rotina mensal</button><br><br>
+    <div id="exibirRotina"></div>
+</body>
+</html>
+
+<script>
+    function calcularRotina() {
+        var intervalo = Number(intervaloMusculacao.value)
+        var dia = 1
+        var repRotina = 1
+        exibirRotina.innerHTML = ``
+        while(dia <= 30) {
+            if (dia == repRotina) {
+                exibirRotina.innerHTML += `Dia ${dia} - Musculação<br>`
+                repRotina += intervalo 
+            }else{
+                exibirRotina.innerHTML += `Dia ${dia} - Comer, Dormir, etc<br>`
+            }
+            dia += 1
+        }
+    }
+</script>

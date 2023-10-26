@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio3</title>
+</head>
+<body>
+    <label for="rendaIndividual">Qual sua renda individual?</label><br><br>
+    <input type="number" id="rendaIndividual"><br><br>
+    <label for="rendaFamiliar">Qual sua renda familiar?</label><br><br>
+    <input type="number" id="rendaFamiliar"><br><br>
+    <button onclick="validar()">Terei benefício</button><br><br>
+    <div id="exibirMensagem"></div>
+</body>
+</html>
+
+<script>
+    function validar() {
+        var rendaInd = Number(rendaIndividual.value)
+        var rendaFam = Number(rendaFamiliar.value)
+
+        if(rendaInd <= 2000 || rendaFam <= 3000) {
+            exibirMensagem.innerHTML =
+            `
+            Você terá direito ao auxílio.
+            `
+        }else {
+            exibirMensagem.innerHTML =
+            `
+            Sem direito ao auxílio.
+            `
+        }
+    }
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio2</title>
+</head>
+<body>
+    <p>Informe seu peso abaixo:</p>
+    <input type="text" id="input_peso">
+    <p>Informe sua altura abaixo:</p>
+    <input type="text" id="input_altura">
+    <br>
+    <br>
+    <button onclick="alerta()">Fale comigo</button>
+</body>
+</html>
+
+<script>
+    alert("Por favor preencha os espaços!!!")
+
+    function alerta() {
+        var peso = input_peso.value
+        var altura = input_altura.value
+
+        alert(`Você pesa ${peso} e tem ${altura} de altura.`)
+    }
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio4</title>
+</head>
+<body>
+    <label for="pesoCrianca">Qual o peso da criança?</label>
+    <input type="number" id="pesoCrianca"><br>
+    <button>Peso Criança</button><br>
+    <div id="exibirPeso"></div>
+</body>
+</html>
+
+<script>
+    function calcularPeso() {
+        var peso = Number(pesoCrianca.value)
+
+        if(peso <= 13.5){
+            exibirPeso.innerHTML = 
+            `
+            Abaixo do peso
+            `
+        }else if(peso == 18.3) {
+            exibirPeso.innerHTML = 
+            `
+            Peso perfeito
+            `
+        }else if(peso <= 21.2) {
+            exibirPeso.innerHTML = 
+            `
+            peso na média
+            `
+        }else {
+            exibirPeso.innerHTML = 
+            `
+            Acima do peso
+            `
+        }
+    }
+</script>

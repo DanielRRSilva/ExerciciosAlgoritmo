@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio2</title>
+</head>
+<body>
+    <label for="destinoViagem">Destino de viagem</label>
+    <input type="text" id="destinoViagem"><br><br>
+    <button onclick="adicionar()">Adicionar</button><br><br>
+    <button onclick="primeiraViagem()">Primeira Viagem</button>
+    <button onclick="terceiraViagem()">Terceira Viagem</button>
+    <button onclick="ultimaViagem()">Última Viagem</button><br><br>
+    <div id="exibirViagem"></div>
+</body>
+</html>
+
+<script>
+    var listaDestino = []
+    function adicionar() {
+        listaDestino.push(destinoViagem.value)
+    }
+
+    function primeiraViagem(){
+        exibirViagem.innerHTML =``
+        if(listaDestino.length == 0){
+            exibirViagem.innerHTML = `Ainda não viajou`
+        }else {
+            exibirViagem.innerHTML = listaDestino[0]
+        }
+    }
+
+    function terceiraViagem(){
+        exibirViagem.innerHTML =``
+        if(listaDestino.length < 3){
+            exibirViagem.innerHTML +=`Ainda não fez a terceira viagem.`
+        }else {
+            exibirViagem.innerHTML += listaDestino[2] 
+        }
+    }
+
+    function ultimaViagem(){
+        exibirViagem.innerHTML =``
+        var posicaoFinal = listaDestino.length - 1
+        if(listaDestino.length == 0) {
+            exibirViagem.innerHTML += `Ainda não viajou`
+        }else {
+            exibirViagem.innerHTML += listaDestino[posicaoFinal]
+        }
+    }   
+</script>

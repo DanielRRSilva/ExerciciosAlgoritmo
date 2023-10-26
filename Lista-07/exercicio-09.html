@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio9</title>
+</head>
+<body>
+    <label for="alturaMin">Qual a aultura minima dos pilotos?</label><br><br>
+    <input type="number" id="alturaMin"><br><br>
+    <label for="alturaMax">Qual a altura maxima dos pilotos?</label><br><br>
+    <input type="number" id="alturaMax"><br><br>
+    <label for="nomeUsuario">Qual o seu nome?</label><br><br>
+    <input type="text" id="nomeUsuario"><br><br>
+    <label for="alturaUsuario">Qual a sua altura?</label><br><br>
+    <input type="number" id="alturaUsuario"><br><br>
+    <button onclick="pilotos()">Validar Altura</button><br><br>
+    <div id="exibirAltura"></div>
+</body>
+</html>
+
+<script>
+    function pilotos() {
+        var alturaMin = Number(alturaMin.value)
+        var alturaMax = Number(alturaMax.value)
+        var nome = nomeUsuario.value
+        var altura = Number(alturaUsuario.value)
+
+        if(alturaMin <= 1 && alturaMax <= alturaMin) {
+            alert(`A altura minima tem que ser maior que 1 e a altura máxima tem que ser maior que a minima!!`)
+        }
+
+        if(altura >= alturaMin && altura <= alturaMax) {
+            exibirAltura.innerHTML += 
+            `
+            O candidato ${nome} com altura de ${altura} participará do processo de seleção de piloto.
+            `
+        }else {
+            exibirAltura.innerHTML += 
+            `
+            Infelizmente o candidato ${nome} com altura de ${altura} não atende os requisitos.
+            `
+        }
+
+    }
+</script>

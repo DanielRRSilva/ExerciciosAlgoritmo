@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio7</title>
+</head>
+<body>
+    <label for="numeroUsuario">Informe um numero entre 20 e 100</label>
+    <input type="text" id="numeroUsuario"><br><br>
+    <button onclick="multiplicar()">Adoro multiplos de 5</button><br><br>
+    <div id="exibirMultiplos"></div>
+</body>
+</html>
+
+<script>
+    function multiplicar() {
+        var numero = Number(numeroUsuario.value)
+        var multi = 0
+        exibirMultiplos.innerHTML = ``
+        while(multi <= numero) {
+            exibirMultiplos.innerHTML += `${multi}<br>`
+            multi += 5
+        }
+    }
+</script>

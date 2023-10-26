@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio7</title>
+</head>
+<body>
+    <p>Quanto custa a passagem?</p>
+    <input type="number" id="valor_passagem">
+    <p>Quantas viagens você fara por mês?</p>
+    <input type="number" id="numero_viagens">
+    <br>
+    <br>
+    <button onclick="alerta()">Ver economias</button>
+</body>
+</html>
+
+<script>
+    function alerta() {
+        var passagem = Number(valor_passagem.value)
+        var viagens = Number(numero_viagens.value)
+        var calcularEconomia = (passagem * viagens) / 2
+
+        alert(`Você economizará R$${calcularEconomia} por mês.`)
+    }
+</script>

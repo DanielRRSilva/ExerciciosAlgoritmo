@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio4</title>
+</head>
+<body>
+    <label for="modoPagamento">Qual o modo de pagamento?</label><br><br>
+    <input type="text" id="modoPagamento"><br><br>
+    <button onclick="avaliar()">Analisar compra</button><br><br>
+    <div id="exibirPagamento"></div>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        var pagamento = modoPagamento.value
+
+        if(pagamento == "dinheiro" || pagamento == "débito") {
+            exibirPagamento.innerHTML = 
+            `
+            Você terá que pagar a vista.
+            `
+        }else {
+            exibirPagamento.innerHTML = 
+            `
+            Pagamento poderá ser parcelado.
+            `
+        }
+    }
+</script>

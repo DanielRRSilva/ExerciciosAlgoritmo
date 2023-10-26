@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio9</title>
+</head>
+<body>
+    <label for="numeroUsuario">Informe um numero:</label>
+    <input type="text" id="numeroUsuario"><br><br>
+    <label for="fraseUsuario">Informe uma frase:</label>
+    <input type="text" id="fraseUsuario"><br><br>
+    <button onclick="repetir()">Papagaio</button><br><br>
+    <div id="exibirRep"></div>
+</body>
+</html>
+
+<script>
+    function repetir() {
+        var numero = Number(numeroUsuario.value)
+        var frase = fraseUsuario.value
+        var repeticao = 1
+        while(repeticao <= numero) {
+            alert(frase)
+            repeticao += 1
+        }
+    }
+</script>

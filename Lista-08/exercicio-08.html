@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio8</title>
+</head>
+<body>
+    <label for="nomeEmpresa">Qual o nome da empresa?</label><br><br>
+    <input type="text" id="nomeEmpresa"><br><br>
+    <label for="valorBolsa">Qual o valor da bolsa?</label><br><br>
+    <input type="number" id="valorBolsa"><br><br>
+    <label for="valorVr">Qual o valor do VR?</label><br><br>
+    <input type="number" id="valorVr"><br><br>
+    <label for="tempoDeslocamento">Qual o tempo de deslocamento da faculdade até o trabalho?</label><br><br>
+    <input type="number" id="tempoDeslocamento"><br><br>
+    <button onclick="avaliar()">É preferida?</button><br><br>
+    <div id="exibirPreferida"></div>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        var nome = nomeEmpresa.value
+        var bolsa = Number(valorBolsa.value)
+        var vr = Number(valorVr.value)
+        var tempo = Number(tempoDeslocamento.value)
+
+        if(bolsa >= 1800 || vr >= 20 || tempo <= 30) {
+            exibirPreferida.innerHTML = 
+            `
+            A empresa ${nome} é uma de suas preferências.
+            `
+        }else {
+            exibirPreferida.innerHTML = 
+            `
+            A empresa ${nome} está fora da sua lista.
+            `
+        }
+    }
+</script>

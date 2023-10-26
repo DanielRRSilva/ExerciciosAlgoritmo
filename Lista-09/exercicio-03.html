@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio3</title>
+</head>
+<body>
+    <span style="color: blue;">Total guardado no cofrinho: R$<u id="totalGuardado">0</u></span><br>
+    <span style="color: blue;">Depósitos efetuados: <u id="depositosFeitos">0</u></span><br>
+    <span style="color: blue;">Retiradas efetuadas: <u id="retiradasFeitas">0</u></span><br><br>
+    <button onclick="depositoP()">Depositar 0,50</button><br><br>
+    <button onclick="depositoG()">Depositar 2,00</button><br><br>
+    <button onclick="retiradaP()">Retirar 0,50</button><br><br>
+    <input type="number" id="valorRetirar">
+    <button onclick="retiradaA()">Retirar</button>
+</body>
+</html>
+
+<script>
+    var guardado = 0
+    var depositos = 0
+    var retiradas = 0
+
+    function depositoP() {
+        guardado += 0.50
+        depositos += 1
+        totalGuardado.innerHTML = guardado
+        depositosFeitos.innerHTML = depositos
+    }
+    function depositoG() {
+        guardado += 2.00
+        depositos += 1
+        totalGuardado.innerHTML = guardado
+        depositosFeitos.innerHTML = depositos
+    }
+    function retiradaP() {
+        guardado -= 0.50
+        retiradas += 1
+        totalGuardado.innerHTML = guardado
+        retiradasFeitas.innerHTML = retiradas
+    }
+    function retiradaA() {
+        guardado -= Number(valorRetirar.value)
+        retiradas += 1
+        totalGuardado.innerHTML = guardado
+        retiradasFeitas.innerHTML = retiradas
+    }
+</script>

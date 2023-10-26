@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio4</title>
+</head>
+<body>
+    <p>Qual o sabor da pizza?</p>
+    <input type="text" id="saborPizza">
+    <p>Qual o valor da pizza?</p>
+    <input type="number" id="valorPizza">
+    <p>Quantos amigos vão comer?</p>
+    <input type="number" id="quantidadeAmigos"><br><br>
+    <button onclick="dividirPizza()">Ver valor por amigo</button><br><br>
+    <div id="valorParaAmigo"></div>  
+</body>
+</html>
+
+<script>
+    function dividirPizza() {
+        var sabor = saborPizza.value
+        var custo = Number(valorPizza.value)
+        var amigos = Number(quantidadeAmigos.value)
+        var totalDividir = (custo * 0.1) + custo
+        
+        valorParaAmigo.innerHTML = 
+        `
+        Cada amigo vai colaborar com R$${totalDividir/amigos} para a pizza de ${sabor}.
+        `   
+    }
+</script>

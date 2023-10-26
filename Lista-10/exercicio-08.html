@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio8</title>
+</head>
+<body>
+    <label for="numeroUsuario">Informe um numero entre 0 e 200:</label>
+    <input type="text" id="numeroUsuario"><br><br>
+    <button onclick="multiplos()">Viva o 7!</button><br><br>
+    <div id="exibirNumero"></div>
+</body>
+</html>
+
+<script>
+    function multiplos() {
+        var numero = Number(numeroUsuario.value)
+        var multi = 0
+        exibirNumero.innerHTML = ``
+        while(multi < numero) {
+            exibirNumero.innerHTML += `${multi}<br>`
+            multi += 7
+        }
+    }
+</script>

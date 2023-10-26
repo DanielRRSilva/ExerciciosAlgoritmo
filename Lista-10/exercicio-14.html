@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio14</title>
+</head>
+<body>
+    <label for="idadeUsuario">Qual sua idade?</label>
+    <input type="text" id="idadeUsuario" onkeyup="fazes()"><br><br>
+    <div id="exibirFazes"></div>
+</body>
+</html>
+
+<script>
+    function fazes() {
+        var idadeAtual = Number(idadeUsuario.value)
+        var idade = 0
+        exibirFazes.innerHTML = ``
+        while(idade <= idadeAtual) {
+            if(idade <= 4) {
+                exibirFazes.innerHTML += `${idade} Anos (Primeira Infância)<br>`
+            }else if(idade <= 6) {
+                exibirFazes.innerHTML += `${idade} Anos (Pré-escolar)<br>`
+            }else if(idade <= 10) {
+                exibirFazes.innerHTML += `${idade} Anos (Segunda Infância)<br>`
+            }else if(idade <= 18) {
+                exibirFazes.innerHTML += `${idade} Anos (Adolecência)<br>`
+            }else if(idade <= 50) {
+                exibirFazes.innerHTML += `${idade} Anos (Adulto)<br>`
+            }else if(idade <= 100) {
+                exibirFazes.innerHTML += `${idade} Anos (Melhor idade)<br>`
+            }else {
+                exibirFazes.innerHTML += `${idade} Anos (Matusalém)<br>`
+            }
+            idade += 1
+        }
+    }
+</script>

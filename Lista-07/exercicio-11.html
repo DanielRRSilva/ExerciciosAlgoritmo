@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio11</title>
+</head>
+<body>
+    <label for="passagensUsuario">Quantas passagens você deseja adquirir?</label><br><br>
+    <input type="number" id="passagensUsuario"><br><br>
+    <button onclick="recarregar()">Comprar</button>
+    <div id="exibirValor"></div>
+</body>
+</html>
+
+<script>
+    function recarregar() {
+        var passagens = Number(passagensUsuario.value)
+        var desconto = 0
+        var totalPassagens = passagens * 4.40
+
+        if(passagens < 8) {
+            alert(`Quantidade inválida para o Fidelidade!`)
+        }else if(passagens > 50) {
+            alert(`Quantidade inválida para o Fidelidade!`)
+        }else if(passagens >= 8 && passagens <= 19) {
+            desconto = 3/100
+            exibirValor.innerHTML = 
+            `
+            O valor total a pagar é de R$${totalPassagens - (totalPassagens * desconto)}
+            `
+        }else if(passagens >= 20 && passagens <= 49) {
+            desconto = 5/100
+            exibirValor.innerHTML = 
+            `
+            O valor total a pagar é de R$${totalPassagens - (totalPassagens * desconto)}
+            `
+        }else {
+            desconto = 7/100
+            exibirValor.innerHTML = 
+            `
+            O valor total a pagar é de R$${totalPassagens - (totalPassagens * desconto)}
+            `
+        }
+    }
+</script>

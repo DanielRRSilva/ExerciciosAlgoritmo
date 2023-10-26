@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio20</title>
+</head>
+<body>
+    <label for="qtdDepositos">Quantos depósito você fez no banco?</label>
+    <input type="text" id="qtdDepositos"><br><br>
+    <label for="valorDeposito">Informe o valor de cada depósito:</label>
+    <input type="text" id="valorDeposito"><br><br>
+    <button onclick="contar()">Acompanhar Grana</button><br><br>
+    <div id="exibirGrana"></div>
+</body>
+</html>
+
+<script>
+    function contar() {
+        var deposito = Number(qtdDepositos.value)
+        var valor = Number (valorDeposito.value)
+        var grana = 0
+        var meses = 1
+        exibirGrana.innerHTML = ``
+        while(meses <= deposito) {
+            grana += valor
+            exibirGrana.innerHTML += `${meses} Mês: R$ ${grana}<br>`
+            if(meses == deposito) {
+                exibirGrana.innerHTML += `Total guardado: R$ ${grana}<br>`
+            }
+            meses += 1
+        }
+    }
+</script>

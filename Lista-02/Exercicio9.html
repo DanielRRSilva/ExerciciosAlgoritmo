@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio9</title>
+</head>
+<body>
+    <p>Informe a nota continua do aluno:</p>
+    <input type="numer" id="nota_continua">
+    <p>Informe a nota semestral do aluno:</p>
+    <input type="number" id="nota_semestral">
+    <p>Informe o nome do aluno:</p>
+    <input type="text" id="nome_aluno">
+    <br>
+    <br>
+    <button onclick="alerta()">Calcular Média</button>
+</body>
+</html>
+
+<script>
+    function alerta() {
+        var notaContinua = Number(nota_continua.value)
+        var notaSemestral = Number(nota_semestral.value)
+        var nomeAluno = nome_aluno.value
+        var media = ((notaContinua * 40/100) + (notaSemestral * 60/100)) / 2
+
+        alert(`A média de ${nomeAluno} será de ${media}`)
+    }
+</script>

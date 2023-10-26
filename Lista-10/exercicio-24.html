@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio24</title>
+</head>
+<body>
+    <label for="numeroUsuario">Informe um numero de 0 a 100:</label>
+    <input type="text" id="numeroUsuario"><br><br>
+    <button onclick="dividir()">Ver divisores</button><br><br>
+    <div id="exibirResultado"></div>
+</body>
+</html>
+
+<script>
+    function dividir() {
+        var dividendo = Number(numeroUsuario.value)
+        var divisor = 1
+        exibirResultado.innerHTML = ``
+        exibirResultado.innerHTML = `Divisores do número ${dividendo} <br>`
+        while(divisor <= dividendo) {
+            if(dividendo % divisor == 0) {
+                exibirResultado.innerHTML += `${divisor} <br>`
+            }
+            divisor += 1
+        }
+    }
+</script>

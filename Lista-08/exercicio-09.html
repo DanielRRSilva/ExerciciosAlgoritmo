@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio9</title>
+</head>
+<body>
+    <label for="marcaTV">Qual a marca da TV?</label><br><br>
+    <input type="text" id="marcaTV"><br><br>
+    <label for="">Qual o preço da TV?</label><br><br>
+    <input type="number" id="precoTv"><br><br>
+    <button onclick="analisar()">Analisar compra</button><br><br>
+    <div id="exibirResultado"></div>
+</body>
+</html>
+
+
+<script>
+    function analisar() {
+        var marca = marcaTV.value
+        var preco = Number(precoTv.value)
+
+        if(preco < 800 || preco > 2000) {
+            exibirResultado.innerHTML = 
+            `
+            TV fora de faixa de preço.<br>
+            `
+            if(preco < 800) {
+                exibirResultado.innerHTML += 
+                `
+                Preço baixo demais!
+                `
+            }else {
+                exibirResultado.innerHTML += 
+                `
+                TV cara demais, infelizmente.
+                `
+            }
+        }else if(marca == "Mondial" || marca == "Britânia") {
+            exibirResultado.innerHTML = 
+            `
+            Na faixa de preço, porém marca não confiavel.
+            `
+        }else {
+            exibirResultado.innerHTML = 
+            `
+            Essa TV pode entrar na sua lista!
+            `
+        }
+    }
+</script>

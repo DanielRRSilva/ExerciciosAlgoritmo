@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio1</title>
+</head>
+<body>
+    <button onclick="contar()">Contar</button><br><br>
+    <div id="exibirNumero"></div>
+</body>
+</html>
+
+<script>
+    function contar() {
+        var repeticao = 1
+        var numero = 1
+        exibirNumero.innerHTML = ``
+        while(repeticao <= 15) {
+            exibirNumero.innerHTML += `${numero}<br>`
+            numero += 1
+            repeticao += 1
+        }
+    }
+</script>

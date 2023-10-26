@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio21</title>
+</head>
+<body>
+    <label for="qtdDeposito">Quantos depósitos você fez no banco?</label>
+    <input type="text" id="qtdDeposito"><br><br>
+    <label for="valorDeposito">Qual o valor dos depósitos?</label>
+    <input type="text" id="valorDeposito"><br><br>
+    <button onclick="acompanhar()">Acompanhar grana</button><br><br>
+    <div id="exibirGrana"></div>
+</body>
+</html>
+
+<script>
+    function acompanhar() {
+        var deposito = Number(qtdDeposito.value)
+        var valor = Number(valorDeposito.value)
+        var grana = 0
+        var contagem = 1
+        while(contagem <= deposito) {
+            grana += valor
+            if(contagem % 3 == 0) {
+                grana += grana * 0.01
+                exibirGrana.innerHTML += `${contagem}º Mês: R$ ${grana}<br>`
+            }else {
+                exibirGrana.innerHTML += `${contagem}º Mês: R$ ${grana}<br>`
+            }
+            contagem += 1
+        }
+    }
+</script>

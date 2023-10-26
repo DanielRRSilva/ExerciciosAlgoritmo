@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio3</title>
+</head>
+<body>
+    <button onclick="dizer()">Diga algo sobre a matéria algoritmo</button><br><br>
+    <div id="exibirFrase"></div>
+</body>
+</html>
+
+<script>
+    function dizer() {
+        var repeticao = 1
+        var numero = 1
+        exibirFrase.innerHTML = ``
+        while(repeticao <= 7) {
+            exibirFrase.innerHTML += `${numero}. Matéria Top<br>`
+            numero += 1
+            repeticao += 1
+        }
+    }
+</script>

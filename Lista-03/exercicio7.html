@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio7</title>
+</head>
+<body>
+    <p>Qual é o seu peso? <b>(Em Quilos)</b></p>
+    <input type="number" id="valorPeso">
+    <p>Qual sua altura? <b>(Em Metros)</b></p>
+    <input type="number" id="valorAltura"><br><br>
+    <button onclick="calcularIMC()">Calcular IMC</button><br><br>
+    <div id="exibirIMC"></div>
+</body>
+</html>
+
+<script>
+    function calcularIMC() {
+        var peso = Number(valorPeso.value)
+        var altura = Number(valorAltura.value)
+
+        exibirIMC.innerHTML = 
+        `
+        Seu IMC é: ${peso/(altura * altura)}
+        `
+    }
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio7</title>
+</head>
+<body>
+    <p>Calculadora de cansaço aprimorada do aluno SPTech.</p>
+    <label for="meioTransporte">Meio de transporte:</label>
+    <input type="text" id="meioTransporte"><br><br>
+    <label for="distanciaFacu">Distância da facauldade(KM):</label>
+    <input type="text" id="distanciaFacu"><br><br>
+    <button onclick="avaliar()">Calcular cansaço</button>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        var transporte = meioTransporte.value
+        var distancia = Number(distanciaFacu.value)
+
+        if(distancia <= 10) {
+            if(transporte == "Carro" || transporte == "Metrô" || transporte == "Ônibus") {
+                alert(`Tá tranks...`)
+            }else {
+                alert(`É... um pouco cansado`)
+            }
+        }else if (transporte == "Carro") {
+            alert(`É... um pouco cansado...`)
+        }else if(transporte == "Metrô" || transporte == "Ônibus") {
+            alert(`Bem cansado...`)
+        }else {
+            alert(`Vish... tá só o pó...`)
+        }
+    }
+</script>

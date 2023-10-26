@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio27</title>
+</head>
+<body>
+    <label for="limiteUsuario">Informe um número como limite maximo:</label>
+    <input type="text" id="limiteUsuario"><br><br>
+    <label for="testeDiv">Informe um número entre 1 e o número informado anteriormente para teste de divisibilidade:</label>
+    <input type="text" id="testeDiv"><br><br>
+    <button onclick="somar()">Somar números</button><br><br>
+    <div id="exibirResultado"></div>
+</body>
+</html>
+
+<script>
+    function somar() {
+        var limiteMax = Number(limiteUsuario.value)
+        var numeroUser = Number(testeDiv.value)
+        var numero = 1
+        var somaMultiplos = 0
+        exibirResultado.innerHTML = ``
+        while(numero <= limiteMax) {
+            if(numero % numeroUser == 0) {
+                exibirResultado.innerHTML += `${numero}<br>`
+                somaMultiplos += numero
+            }
+            numero += 1
+        }
+        exibirResultado.innerHTML += `Soma dos Mútiplos: ${somaMultiplos}`
+    }
+</script>

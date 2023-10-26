@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio4</title>
+</head>
+<body>
+    <button onclick="par()">S2 Pares</button><br><br>
+    <div id="exibirPares"></div>
+</body>
+</html>
+
+<script>
+    function par() {
+        var repeticao = 0
+        var pares = 0
+        exibirPares.innerHTML = ``
+        while(repeticao <= 50) {
+            exibirPares.innerHTML += `${pares}<br>`
+            pares += 2
+            repeticao += 1
+        }
+    }
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio5</title>
+</head>
+<body>
+    <button onclick="numero()">Números cabalísticos</button><br><br>
+    <div id="exibirNumeros"></div>
+</body>
+</html>
+
+<script>
+    function numero() {
+        var numeros = 1
+        exibirNumeros.innerHTML = ``
+        while(numeros <= 30) {
+            exibirNumeros.innerHTML += `${numeros}<br>`
+            numeros += 1
+            if(numeros == 3 || numeros == 4){
+                numeros += 2
+            }
+            if(numeros == 7 || numeros == 10 || numeros == 12) {
+                numeros += 1
+            }
+        }
+    }
+</script>

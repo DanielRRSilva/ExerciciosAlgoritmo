@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio4</title>
+</head>
+<body>
+    <p>Qual o nome da rua/avenida/vila onde você mora?</p>
+    <input type="text" id="input_endereço">
+    <p>Qual o número da casa em que você mora?</p>
+    <input type="text" id="input_endereçoNumero">
+    <br>
+    <br>
+    <button onclick="alerta()">Onde eu moro</button>
+</body>
+</html>
+
+<script>
+    alert("Por favor preencha os campos!!")
+
+    function alerta() {
+        var endereço = input_endereço.value
+        var numero = input_endereçoNumero.value
+
+        alert(`Seu logradouro é ${endereço}.`)
+
+        alert(`O número do seu logradouro é ${numero}.`)
+    }
+</script>

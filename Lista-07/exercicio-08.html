@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio8</title>
+</head>
+<body>
+    <label for="loginUsuario">Qual o seu login?</label><br><br>
+    <input type="text" id="loginUsuario"><br><br>
+    <label for="senhaUsuario">Qual a sua senha?</label><br><br>
+    <input type="text" id="senhaUsuario"><br><br>
+    <label for="codigoUsuario">Qual seu código de segurança</label><br><br>
+    <input type="number" id="codigoUsuario">
+    <button>Entrar</button>
+</body>
+</html>
+
+<script>
+    function logar() {
+        var login = loginUsuario.value
+        var senha = senhaUsuario.value
+        var codigo =Number(codigoUsuario.value)
+
+        if( login == "SPTech" && senha == "digital" && codigo == "123") {
+            alert(`Usuário autenticado com sucesso.`)
+        }else {
+            alert(`Falha na autenticação.`)
+        }
+    }
+</script>

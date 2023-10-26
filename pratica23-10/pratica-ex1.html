@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prática</title>
+</head>
+<body>
+    <h1>----------Abrir Quiosque----------</h1>
+    <label for="aguaEngarrafada">Informe a quantidade de Água engarrafada:</label>
+    <input type="text" id="aguaEngarrafada"><br><br>
+    <label for="cocoFechado">Informe a quantidade de cocos fechados:</label>
+    <input type="text" id="cocoFechado"><br><br>
+    <button onclick="validar()">Abrir quiosque</button><br><br>
+    <div id="estoque"></div><br><br>
+    <h1>----------Registro das Operações de venda----------</h1><br>
+    <label for="qtdVenda">Informe a quantidade vendida:</label>
+    <input type="text" id="qtdVenda">
+    <label for="produtoVendido">Informe o produto vendido</label>
+    <select name="produto" id="produtoVendido">
+        <option value="agua_engarrafada">Água engarrafada</option>
+        <option value="coco_fechado">Coco fechado</option>
+    </select>
+    <button onclick=" registrarVenda()">Registrar Vendas</button>
+    <button style="background-color: red;" onclick="encerrar()">Encerrar Turno</button><br><br>
+    <div id="quiosque"></div>
+</body>
+</html>
+
+<script>
+    var aguaDeCoco = 0
+    var coco = 0
+    var vendaAgua = 0
+    var vendaCoco = 0
+    function validar() {
+        aguaDeCoco = Number(aguaEngarrafada.value)
+        coco = Number(cocoFechado.value)
+
+        if(aguaDeCoco < 100) {
+            alert(`Com essa quantidade de água engarrafada não da pra abrir o quiosque!`)
+        }else if(coco < 200) {
+            alert(`Com essa quantidade de coco fehcado não da pra abrir o quiosque!`)
+        }else {
+            if(aguaDeCoco >= 100 && aguaDeCoco <= 1000) {
+                alert(`Engarrafe mais água de coco!`)
+            }
+            if(coco >= 200 && coco <= 2000) {
+                alert(`Compre mais cocos!`)
+            }
+            estoque.innerHTML =
+            `
+            <h1>----------Estoque Inicial----------</h1>
+            Estoque de água engarrafada: ${aguaDeCoco}<br>
+            Estoque de cocos: ${coco}<br>
+            `
+        }
+    }
+    function registrarVenda() {
+        var produtoVenda = produtoVendido.value
+        if(produtoVenda == 'agua_engarrafada') {
+            vendaAgua = Number(qtdVenda.value)
+            aguaDeCoco -= vendaAgua
+            quiosque.innerHTML += 
+            `
+            Com as vendas de ${vendaAgua} Águas engarrafadas o saldo no estoque é de ${aguaDeCoco}.<br>
+            `
+        }else{
+            vendaCoco = Number(qtdVenda.value)
+            coco -= vendaCoco
+            estoque.innerHTML = 
+            `
+            Estoque de água engarrafada: ${aguaDeCoco}<br>
+            Estoque de cocos: ${coco}<br><br>
+            `
+            quiosque.innerHTML += 
+            `
+            Com as vendas de ${vendaCoco} Cocos Fechados o saldo no estoque é de ${coco}.<br>
+            `
+        }
+        estoque.innerHTML =
+        `
+            <h1>----------Estoque Inicial----------</h1>
+            Estoque de água engarrafada: ${aguaDeCoco}<br>
+            Estoque de cocos: ${coco}<br>
+        `
+
+    }
+    function encerrar() {
+        var totalVenda = vendaAgua + vendaCoco 
+        var porcentagemVendaCoco = (vendaCoco * 100) / totalVenda
+        var porcentagemVendaAgua = (vendaAgua * 100) / totalVenda
+        quiosque.innerHTML = ``
+        quiosque.innerHTML = 
+        `
+        <b>Vendas de Ágrua Engarrafada:</b><br>
+        Saldo de produto no estoque: ${aguaDeCoco}<br>
+        Quantidade de venda: ${vendaAgua}<br>
+        Porcentagem das vendas: ${porcentagemVendaAgua}%<br><br>
+        <b>Vendas de Cocos Fechados:</b><br>
+        Saldo de  produto no estoque: ${coco}<br>
+        Quantidade de venda: ${vendaCoco}<br>
+        Porcentagem das vendas: ${porcentagemVendaCoco}%<br>
+        `
+    }
+</script>

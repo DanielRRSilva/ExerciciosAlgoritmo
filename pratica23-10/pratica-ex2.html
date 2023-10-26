@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio2</title>
+</head>
+<body>
+    <label for="valorPremiacao">Valor da premiação total:</label>
+    <input type="text" id="valorPremiacao"><br><br>
+    <label for="numeroRodadas">Número de rodadas:</label>
+    <input type="text" id="numeroRodadas"><br><br>
+    <label for="resultadoTimeA">Time A:</label>
+    <select name="ResultadoTimeA" id="resultadoTimeA">
+        <option value="vitoria">Vitória</option>
+        <option value="empate">Empate</option>
+        <option value="derrota">Derrota</option>
+    </select><br><br>
+    <label for="resultadoTimeB">Time B:</label>
+    <select name="ResultadoTimeB" id="resultadoTimeB">
+        <option value="vitoria">Vitória</option>
+        <option value="empate">Empate</option>
+        <option value="derrota">Derrota</option>
+    </select><br><br>
+    <label for="resultadoTimeC">Time C:</label>
+    <select name="ResultadoTimeC" id="resultadoTimeC">
+        <option value="vitoria">Vitória</option>
+        <option value="empate">Empate</option>
+        <option value="derrota">Derrota</option>
+    </select><br><br>
+    <button onclick="realizarRodada()">Realizar Rodada</button>
+    <button onclick="revelarPremiacao()">Revelar Premiação</button><br><br>
+    <div id="verRodada">Rodada atual: <span id="numeroDaRodada"></span><br></div>
+    <div id="exibirResultado"></div>
+</body>
+</html>
+
+<script>
+    var pontoA = 0
+    var pontoB = 0
+    var pontoC = 0
+    var premiacao = 0
+    var rodadaAtual = 1
+    var pontoAGrafico = ``
+    var pontoBGrafico = ``
+    var pontoCGrafico = ``
+    function realizarRodada() {
+        premiacao = Number(valorPremiacao.value)
+        pontoAGrafico = ``
+        pontoBGrafico = ``
+        pontoCGrafico = ``
+        var rodada = Number(numeroRodadas.value)
+        var resultadoA = resultadoTimeA.value
+        var resultadoB = resultadoTimeB.value
+        var resultadoC = resultadoTimeC.value
+        var contagemPontosA = 0
+        var contagemPontosB = 0
+        var contagemPontosC = 0
+        if(premiacao < 1000 && rodada < 1) {
+            alert(`Dados inválidos para a rodada!`)
+        }else {
+            if(resultadoA == 'vitoria') {
+                pontoA += 3
+            }else if(resultadoA == 'empate') {
+                pontoA += 1
+            }
+            if(resultadoB == 'vitoria') {
+                pontoB += 3 
+            }else if(resultadoB == 'empate') {
+                pontoB += 1
+            }
+            if(resultadoC == 'vitoria') {
+                pontoC += 3
+            }else if(resultadoC == 'empate') {
+                pontoC += 0
+            }
+            while(contagemPontosA < pontoA) {
+                pontoAGrafico += `<div style="background-color: red; border-radius: 100%; border-color: red; width: 10px; height: 10px;"></div>`
+                contagemPontosA += 1
+            }
+            while(contagemPontosB < pontoB) {
+                pontoBGrafico += `<div style="background-color: green; border-radius: 100%; border-color: green; width: 10px; height: 10px;"></div>`
+                contagemPontosB += 1
+            }
+            while(contagemPontosC < pontoC) {
+                pontoCGrafico += `<div style="background-color: blue; border-radius: 100%; border-color: blue; width: 10px; height: 10px;"></div>`
+                contagemPontosC += 1
+            }
+            numeroDaRodada.innerHTML = `${rodadaAtual}` 
+            exibirResultado.innerHTML = 
+            `
+            <div id="timeA" style="display: flex; align-items: center;">Time A : <div id="exibirPontos" style="display: flex;">${pontoAGrafico}</div></div>
+            <div id="timeB" style="display: flex; align-items: center;">Time B : <div id="exibirPontos" style="display: flex;">${pontoBGrafico}</div></div>
+            <div id="timeC" style="display: flex; align-items: center;">Time C : <div id="exibirPontos" style="display: flex;">${pontoCGrafico}</div></div>
+            `
+            if(rodadaAtual == rodada){
+                revelarPremiacao();
+            }
+            rodadaAtual +=1
+        }
+    }
+    function revelarPremiacao() {
+        var totalPontos = pontoA + pontoB + pontoC
+        var premiacaoA = (premiacao * pontoA) / totalPontos
+        var premiacaoB = (premiacao * pontoB) / totalPontos
+        var premiacaoC = (premiacao * pontoC) / totalPontos
+        exibirResultado.innerHTML = 
+        `
+        <div id="timeA" style="display: flex; align-items: center;">Time A : ${premiacaoA.toFixed(2)} <div id="exibirPontos" style="display: flex;">${pontoAGrafico}</div></div>
+        <div id="timeB" style="display: flex; align-items: center;">Time B : ${premiacaoB.toFixed(2)}<div id="exibirPontos" style="display: flex;">${pontoBGrafico}</div></div>
+        <div id="timeC" style="display: flex; align-items: center;">Time C : ${premiacaoC.toFixed(2)}<div id="exibirPontos" style="display: flex;">${pontoCGrafico}</div></div>
+        `
+        }
+</script>

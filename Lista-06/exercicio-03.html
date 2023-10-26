@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio3</title>
+</head>
+<body>
+    <label for="temperaturaAtual">Qual a temperatura atual?</label>
+    <input type="number" id="temperaturaAtual"><br><br>
+    <button onclick="temperatura()">Temperatura atual</button><br>
+    <div id="exibirTemp"></div>
+</body>
+</html>
+
+<script>
+    function temperatura() {
+        var tempAtual = Number(temperaturaAtual.value)
+
+        if(tempAtual <= 14) {
+            exibirTemp.innerHTML = 
+            `
+            Congelante
+            `
+        }else if(tempAtual <= 21) {
+            exibirTemp.innerHTML = 
+            `
+            Com frio
+            `
+        }else if(tempAtual <= 24) {
+            exibirTemp.innerHTML = 
+            `
+            Confortável
+            `
+        }else if(tempAtual <=31) {
+            exibirTemp.innerHTML = 
+            `
+            Com calor
+            `
+        }else {
+            exibirTemp.innerHTML = 
+            `
+            Calor escaldante
+            `
+        }
+    }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio8</title>
+</head>
+<body>
+    <label for="paoFrances">Quantos pães franceses você come por dia?</label><br><br>
+    <input type="number" id="paoFrances"><br><br>
+    <label for="bolachaRecheada">Quantos pacotes de bolacha recheada você tem comido?</label><br><br>
+    <input type="number" id="bolachaRecheada"><br><br>
+    <label for="achocolatado">Quantos copos de achocolatado você bebe por dia?</label><br><br>
+    <input type="number" id="achocolatado"><br><br>
+    <button onclick="calcularCalorias()">Verificar Calorias</button><br><br>
+    <div id="exibirCalorias"></div>
+</body>
+</html>
+
+<script>
+    function calcularCalorias() {
+        var pao = Number(paoFrances.value)
+        var bolacha = Number(bolachaRecheada.value)
+        var toddy = Number(achocolatado.value)
+        var caloriaTotal = (pao * 50) + (bolacha * 80) + (toddy * 70)
+
+        if(caloriaTotal <= 200) {
+            exibirCalorias.innerHTML = 
+            `
+            Parabéns vai ficar em forma!
+            `
+        }else if(caloriaTotal <= 400) {
+            exibirCalorias.innerHTML = 
+            `
+            Cuidado, vai ficar menos saudável!
+            `
+        }else {
+            exibirCalorias.innerHTML = 
+            `
+            Alerta crítico de saúde!!!
+            `
+        }
+    }
+</script>

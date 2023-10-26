@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio6</title>
+</head>
+<body>
+    <p>Calculadora de cansaço</p><br><br>
+    <p>Meio de transporte</p><br><br>
+    <input type="text" id="meioTransporte"><br><br>
+    <button>Calcular cansaço</button>
+    
+</body>
+</html>
+
+<script>
+    function validar() {
+        var transporte = meioTransporte.value
+
+        if(transporte == "Carro" || transporte == "Bicicleta") {
+            alert(`Tá tranquilo...`)
+        }else if (transporte == "Metrô") {
+            alert(`Um pouco cansado`)
+        }else {
+            alert(`Vish... vive cansado.`)
+        }
+    }
+</script>

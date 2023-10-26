@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio7</title>
+</head>
+<body>
+    <label for="numeroHomem">Há quantos homens no elevador?</label><br>
+    <input type="number" id="numeroHomem">
+    <br><br>
+    <label for="numeroMulher">Há quantas mulheres no elevador?</label><br>
+    <input type="number" id="numeroMulher">
+    <br><br>
+    <button onclick="calcularPeso()">Ligar Elevador</button>
+    <br><br>
+    <div id="exibirPeso"></div>
+</body>
+</html>
+
+<script>
+    function calcularPeso() {
+        var homens = Number(numeroHomem.value)
+        var mulheres =  Number(numeroMulher.value)
+        var peso = homens * 90 + mulheres * 70
+
+        if(peso <= 500) {
+            exibirPeso.innerHTML = 
+            `
+            <p style = "color: green;">Elevador vai se mover, pois esta com ${peso}kg.</p>
+            `
+        }else {
+            exibirPeso.innerHTML = 
+            `
+            <p style = "color: red;">Alguém precisa descer. Precisa perder ${peso - 500}kg para mover o elevador.</p>
+            `
+        }
+    }
+</script>

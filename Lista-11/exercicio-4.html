@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio4</title>
+</head>
+<body>
+    <label for="filmeFavorito">Informe a lista dos seus filmes favoritos:</label>
+    <input type="text" id="filmeFavorito"><br><br>
+    <button onclick="cadastrar()">Cadastrar Filme</button>
+    <button onclick="exibirFavoritos()">Ver Favoritos</button><br><br>
+    <div id="exibirFilmes"></div>
+</body>
+</html>
+
+<script>
+    var filmesFavoritos = []
+    function cadastrar() {
+        filmesFavoritos.push(filmeFavorito.value)
+    }
+    function exibirFavoritos() {
+        var posicaoFinal = filmesFavoritos.length - 1
+        for(var imprimir = 0; imprimir <= filmesFavoritos.length; imprimir += 1) {
+            exibirFilmes.innerHTML = 
+            `
+            ${filmesFavoritos}<br>
+            `
+        }
+        exibirFilmes.innerHTML += 
+        `
+        Total: ${filmesFavoritos.length}<br>
+        O filme que mais gosta é ${filmesFavoritos[0]}<br>
+        E desses, o que menos gosta é ${filmesFavoritos[posicaoFinal]}
+        `
+    }
+</script>

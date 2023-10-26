@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio10</title>
+</head>
+<body>
+    <label for="numeroMinimo">Informe um numero minimo:</label>
+    <input type="text" id="numeroMinimo"><br><br>
+    <label for="numeroMaximo">Informe um numero maximo</label>
+    <input type="text" id="numeroMaximo"><br><br>
+    <button onclick="par()">S2 Pares</button><br><br>
+    <div id="exibirPares"></div>
+</body>
+</html>
+
+<script>
+    function par() {
+        var numeroMin = Number(numeroMinimo.value)
+        var numeroMax = Number(numeroMaximo.value)
+        var numero = numeroMin
+        
+        while(numero <= numeroMax) {
+            if(numero % 2 == 0) {
+                exibirPares.innerHTML += `${numero}<br>`
+            }
+            numero += 1
+        }
+    }
+</script>

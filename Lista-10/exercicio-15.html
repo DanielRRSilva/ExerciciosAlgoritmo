@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio15</title>
+</head>
+<body>
+    <label for="">Quantos elefantes?</label>  
+    <input type="text" id="qtdElefante"><br><br>
+    <button onclick="contar()">Atazanar a médium</button><br><br>
+    <div id="exibirElefante"></div>
+</body>
+</html>
+
+<script>
+    function contar() {
+        var elefante = Number(qtdElefante.value)
+        var contagemElefante = 1
+        exibirElefante.innerHTML = ``
+        while(contagemElefante < elefante) {
+            exibirElefante.innerHTML += `1 elefante incomoda muita gente<br>`
+            contagemElefante += 1
+            var incomodam = ""
+            var repFrase = 1
+            while(repFrase <= contagemElefante) {
+                incomodam += "incomodam, "
+                repFrase += 1
+            }
+            exibirElefante.innerHTML += `${contagemElefante} elefantes ${incomodam} muito mais<br>`
+        }
+    }
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio7</title>
+</head>
+<body>
+    <label for="economia">Quanto você tem economizado?</label>
+    <input type="number" id="economia"><br><br>
+    <button onclick="compras()">Pode compra</button><br><br>
+    <div id="exibirCompras"></div>
+</body>
+</html>
+
+<script>
+    function compras() {
+        var economias = Number(economia.value)
+
+        if(economias <= 0) {
+            exibirCompras.innerHTML = 
+            `
+            Nada de compras Suphia
+            `
+        }else if(economias <= 100) {
+            exibirCompras.innerHTML = 
+            `
+            Viajem de ida e volta para Praia Grande
+            `
+        }else if(economias <= 4000) {
+            exibirCompras.innerHTML = 
+            `
+            Viajem de ida e volta para Praia Grande.<br>
+            Uma boa moto usada.
+            `
+        }else {
+            exibirCompras.innerHTML = 
+            `
+            Viajem de ida e volta para Praia Grande.<br>
+            Uma boa moto usada.<br>
+            Mais alguma bobagem legal.
+            `
+        }
+    }
+</script>

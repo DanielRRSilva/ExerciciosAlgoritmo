@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio9</title>
+</head>
+<body>
+    <label for="economiaUsuario">Qual sua meta de economia?</label><br><br>
+    <input type="number" id="economiaUsuario"><br><br>
+    <label for="">Quanto você tem guardado?</label><br><br>
+    <input type="number" id="dinheiroGuardado"><br><br>
+    <button onclick="calcularEconomia()">Analisar Economia</button><br><br>
+    <div id="exibirEconomia"></div>
+</body>
+</html>
+
+<script>
+    function calcularEconomia() {
+        var obj = Number(economiaUsuario.value)
+        var atual = Number(dinheiroGuardado.value)
+
+        if(atual == obj) {
+            exibirEconomia.innerHTML = 
+            `
+            Parabéns, meta alcançada!
+            `
+        }else if(atual > obj) {
+            exibirEconomia.innerHTML = 
+            `
+            Parabéns, meta alcançada! Meta ultrapassada em ${atual - obj}.
+            `
+        }else {
+            exibirEconomia.innerHTML = 
+            `
+            Força! Ainda em busca da meta! Falta ${obj - atual}.
+            `
+        }
+    }
+</script>
