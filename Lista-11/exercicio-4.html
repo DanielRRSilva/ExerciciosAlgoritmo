@@ -21,12 +21,10 @@
     }
     function exibirFavoritos() {
         var posicaoFinal = filmesFavoritos.length - 1
-        for(var imprimir = 0; imprimir <= filmesFavoritos.length; imprimir += 1) {
-            exibirFilmes.innerHTML = 
-            `
-            ${filmesFavoritos}<br>
-            `
-        }
+        exibirFilmes.innerHTML = 
+        `
+        ${filmesFavoritos}<br>
+        `
         exibirFilmes.innerHTML += 
         `
         Total: ${filmesFavoritos.length}<br>
