@@ -6,6 +6,37 @@
     <title>Exercicio10</title>
 </head>
 <body>
-    <label for="">Informe o nome da linha de onibûs:</label>
+    <label for="">Informe o nome da linha de onibûs que usou essa semana:</label>
+    <input type="text" id="onibusUsado"><br><br>
+    <button onclick="gravarOnibus()">Gravar Busão</button><br><br>
+    <label for="">Pesquisar Linha:</label>
+    <input type="text" id="pesquisaLinha"><br><br>
+    <button onclick="pesquisar()">Pesquisar</button><br><br>
+    <div id="exibirLinhas"></div>
 </body>
 </html>
+
+<script>
+    var listaLinhas = []
+    function gravarOnibus() {
+        listaLinhas.push((onibusUsado.value).toLowerCase())
+        exibirLinhas.innerHTML = ``
+        for(var posicao = listaLinhas.length; posicao > 0; posicao -= 1) {
+            exibirLinhas.innerHTML += `${listaLinhas[posicao - 1]}<br>`
+        }
+    }
+    function pesquisar() {
+        var linhaPesquisada = pesquisaLinha.value
+        var qtdPegouLinha = 0
+        var listaPosicao = []
+        for(var posicao = 0; posicao <= listaLinhas.length; posicao += 1) {
+            if(listaLinhas[posicao] == linhaPesquisada.toLowerCase()) {
+                qtdPegouLinha += 1
+                listaPosicao.push(posicao)
+            }
+        }
+        if(qtdPegouLinha > 0) {
+            exibirLinhas.innerHTML += ` Você já pegou essa linha ${qtdPegouLinha} vezes, nessa ordem: ${listaPosicao}`
+        }
+    }
+</script>
