@@ -27,16 +27,14 @@
     }
     function pesquisar() {
         var linhaPesquisada = pesquisaLinha.value
-        var qtdPegouLinha = 0
         var listaPosicao = []
         for(var posicao = 0; posicao <= listaLinhas.length; posicao += 1) {
             if(listaLinhas[posicao] == linhaPesquisada.toLowerCase()) {
-                qtdPegouLinha += 1
-                listaPosicao.push(posicao)
+                listaPosicao.push(posicao + 1)
             }
         }
         if(qtdPegouLinha > 0) {
-            exibirLinhas.innerHTML += ` Você já pegou essa linha ${qtdPegouLinha} vezes, nessa ordem: ${listaPosicao}`
+            exibirLinhas.innerHTML += ` Você já pegou essa linha ${listaPosicao.length} vezes, nessa ordem: ${listaPosicao}`
         }else {
             exibirLinhas.innerHTML += `Você nunca pegou essa linha`
         }
