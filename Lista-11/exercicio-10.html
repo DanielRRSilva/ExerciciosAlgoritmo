@@ -33,7 +33,7 @@
                 listaPosicao.push(posicao + 1)
             }
         }
-        if(qtdPegouLinha > 0) {
+        if(listaPosicao.length > 0) {
             exibirLinhas.innerHTML += ` Você já pegou essa linha ${listaPosicao.length} vezes, nessa ordem: ${listaPosicao}`
         }else {
             exibirLinhas.innerHTML += `Você nunca pegou essa linha`
