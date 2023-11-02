@@ -42,16 +42,16 @@
             Preço de compra: ${listaPrecoCompra[repeticao]}. Vender por R$${listaPrecoCompra[repeticao]*1.25}<br><br>
             `
         }
-        for(var posicao = 0; posicao < listaPrecoCompra.length; posicao += 1) {
-            if(listaPrecoCompra[posicao] > maiorPreco) {
-                maiorPreco = listaPrecoCompra[posicao]
-                menorPreco = listaPrecoCompra[posicao]
+        for(var posicaoMaior = 0; posicaoMaior < listaPrecoCompra.length; posicaoMaior += 1) {
+            if(listaPrecoCompra[posicaoMaior] > maiorPreco) {
+                maiorPreco = listaPrecoCompra[posicaoMaior]
+                menorPreco = listaPrecoCompra[posicaoMaior]
                 posicaoProdutoMaisCaro += 1
             }
         }
-        for(var posicao2 = 0; posicao2 < listaPrecoCompra.length; posicao2 += 1) {
-            if(listaPrecoCompra[posicao2] <= menorPreco) {
-                menorPreco = listaPrecoCompra[posicao2]
+        for(var posicaoMenor = 0; posicaoMenor < listaPrecoCompra.length; posicaoMenor += 1) {
+            if(listaPrecoCompra[posicaoMenor] <= menorPreco) {
+                menorPreco = listaPrecoCompra[posicaoMenor]
                 posicaoProdutoMaisBarato += 1
             }
         }
