@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio12</title>
+</head>
+<body>
+    <label for="nomeFilho">Informe o nome do/s seu/s filho/s:</label>
+    <input type="text" id="nomeFilho"><br><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizarFamilia()">Atualizar Familia</button><br><br>
+    <div id="exibirFamilia"></div>
+</body>
+</html>
+
+<script>
+    listaFilho = []
+    function cadastrar() {
+        var nome = nomeFilho.value
+        var nomeExiste = false
+        for(var posicao = 0; posicao <= listaFilho.length; posicao += 1) {
+            if(nome == listaFilho[posicao]) {
+                nomeExiste = true
+            }
+        }
+        if(nomeExiste) {
+            alert(`Não pode mais de 1 filho com o mesmo nome!`)
+        }else {
+            listaFilho.push(nome)
+        }
+    }
+    function atualizarFamilia() {
+        exibirFamilia.innerHTML =
+        `
+        Você tem ${listaFilho.length} filhos<br>
+        Seu custo mensal será aproximadamente R$${listaFilho.length*3000} se colocá-los em escola particular ou R$${listaFilho.length*1500} se eles estudarem em escola pública 
+        `
+    }
+</script>

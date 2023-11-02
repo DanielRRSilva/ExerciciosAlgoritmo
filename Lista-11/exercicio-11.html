@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio11</title>
+</head>
+<body>
+    <label for="precoProduto">Informe o preço do produto:</label>
+    <input type="text" id="precoProduto"><br><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizarEstoque()">Atualizar Estoque</button><br><br>
+    <div id="exibirEstoque"></div>
+</body>
+</html>
+
+<script>
+    var listaValorProduto = []
+    var valorEstoque = 0
+    function cadastrar() {
+        var valorProduto = Number(precoProduto.value)
+        valorEstoque += valorProduto
+        listaValorProduto.push(valorProduto)
+    }
+
+    function atualizarEstoque() {
+        exibirEstoque.innerHTML =
+        `
+        Você tem ${listaValorProduto.length} produtos cadastrados em estoque 
+
+        Seu estoque vale R$${valorEstoque}
+        `
+    }
+</script>

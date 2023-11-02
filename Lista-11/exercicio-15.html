@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exericicio15</title>
+</head>
+<body>
+    <label for="nomeProduto">Informe o nome do produto:</label>
+    <input type="text" id="nomeProduto"><br><br>
+    <label for="precoCompra">Informe o preço da compra:</label>
+    <input type="text" id="precoCompra"><br><br>
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="relatorio()">Relatório de Estoque</button><br><br>
+    <div id="exibirRelatorio"></div>
+</body>
+</html>
+
+<script>
+    listaNomeProduto = []
+    listaPrecoCompra = []
+    var maiorPreco = 0 
+    var menorPreco = 0
+    var posicaoProdutoMaisCaro = 0
+    var posicaoProdutoMaisBarato = 0
+    var somaPrecoCompra = 0
+    function registrar() {
+        var preco = Number(precoCompra.value)
+        listaNomeProduto.push(nomeProduto.value)
+        listaPrecoCompra.push(preco)
+        somaPrecoCompra += preco
+    }
+    function relatorio() {
+        var somaValorVenda = 0
+        exibirRelatorio.innerHTML = ``
+        exibirRelatorio.innerHTML = `Total de produtos: ${listaNomeProduto.length}<br>`
+        for(var repeticao = 0; repeticao < listaNomeProduto.length; repeticao += 1) {
+            somaValorVenda += listaPrecoCompra[repeticao]*1.25
+            exibirRelatorio.innerHTML +=
+            `
+            Produto${repeticao + 1}: ${listaNomeProduto[repeticao]}<br>
+            Preço de compra: ${listaPrecoCompra[repeticao]}. Vender por R$${listaPrecoCompra[repeticao]*1.25}<br><br>
+            `
+        }
+        for(var posicao = 0; posicao < listaPrecoCompra.length; posicao += 1) {
+            if(listaPrecoCompra[posicao] > maiorPreco) {
+                maiorPreco = listaPrecoCompra[posicao]
+                menorPreco = listaPrecoCompra[posicao]
+                posicaoProdutoMaisCaro += 1
+            }
+        }
+        for(var posicao2 = 0; posicao2 < listaPrecoCompra.length; posicao2 += 1) {
+            if(listaPrecoCompra[posicao2] <= menorPreco) {
+                menorPreco = listaPrecoCompra[posicao2]
+                posicaoProdutoMaisBarato += 1
+            }
+        }
+        exibirRelatorio.innerHTML +=
+        `
+        Produto mais caro: ${listaNomeProduto[posicaoProdutoMaisCaro]}<br>
+        Produto mais barato: ${listaNomeProduto[posicaoProdutoMaisBarato]}<br>
+        Soma dos preços de compra dos produtos: ${somaPrecoCompra}<br>
+        Média de preço de venda dos produtos: ${somaValorVenda/listaPrecoCompra.length}
+        `
+    }
+</script>

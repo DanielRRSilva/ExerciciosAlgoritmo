@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio14</title>
+</head>
+<body>
+    <label for="nomeProduto">Informe o nome do produto:</label>
+    <input type="text" id="nomeProduto"><br><br>
+    <label for="precoCompra">Informe o preço da compra:</label>
+    <input type="text" id="precoCompra"><br><br>
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="relatorio()">Relatório de Estoque</button><br><br>
+    <div id="exibirRelatorio"></div>
+</body>
+</html>
+
+<script>
+    listaNomeProduto = []
+    listaPrecoCompra = []
+    function registrar() {
+        listaNomeProduto.push(nomeProduto.value)
+        listaPrecoCompra.push(Number(precoCompra.value))
+    }
+    function relatorio() {
+        exibirRelatorio.innerHTML = ``
+        exibirRelatorio.innerHTML = `Total de produtos: ${listaNomeProduto.length}<br>`
+        for(var repeticao = 0; repeticao < listaNomeProduto.length; repeticao += 1) {
+            exibirRelatorio.innerHTML +=
+            `
+            Produto${repeticao + 1}: ${listaNomeProduto[repeticao]}<br>
+            Preço de compra: ${listaPrecoCompra[repeticao]}. Vender por R$${listaPrecoCompra[repeticao]*1.25}<br><br>
+            `
+        }
+    }
+</script>

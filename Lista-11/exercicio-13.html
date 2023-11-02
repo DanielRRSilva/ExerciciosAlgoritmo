@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio13</title>
+</head>
+<body>
+    <label for="resultado">Indique o Resultado:</label>
+    <select name="resultado" id="resultado">
+        <option value="vitoria">Vitoria</option>
+        <option value="empate">Empate</option>
+        <option value="derrota">Derrota</option>
+    </select><br>
+    <button onclick="registrarJogo()">Registrar Jogo</button><br><br>
+    <label for="pesquisar">Indique qual jogo deseja saber o resultado</label>
+    <input type="text" id="pesquisar" onkeyup="pesquisarJogo()"><br><br>
+    <div id="exibirResultado"></div><br>
+    <div id="exibirPesquisa"></div>
+</body>
+</html>
+
+<script>
+    var listaResultado = []
+    var vitoria = 0
+    var empate = 0
+    var derrota = 0
+    var totalPontos = 0
+    function registrarJogo() {
+        var resultadoJogo = resultado.value
+        listaResultado.push(resultadoJogo)
+        if(resultadoJogo == 'vitoria') {
+            vitoria += 1
+            totalPontos += 3
+        }else if(resultadoJogo == 'empate') {
+            empate += 1
+            totalPontos += 1
+        }else {
+            derrota += 1
+        }
+        var aproveitamento = (totalPontos/(listaResultado.length*3))*100
+        exibirResultado.innerHTML =
+        `
+        O time teve: ${vitoria} vitórias, ${empate} empates, ${derrota} derrotas<br>
+        Pontuação total: ${totalPontos} pontos<br>
+        Aproveitamento: ${aproveitamento.toFixed(2)}%<br>
+        `
+    }
+    function pesquisarJogo() {
+        var numeroJogo = Number(pesquisar.value)
+        if(numeroJogo > listaResultado.length) {
+            exibirPesquisa.innerHTML = `  Não foi cadastrado um ${numeroJogo}º jogo `
+        }else if (listaResultado[numeroJogo - 1] == 'vitoria') {
+            exibirPesquisa.innerHTML = `No ${numeroJogo}º jogo, o time Ganhou `
+        }else if (listaResultado[numeroJogo - 1] == 'empate') {
+            exibirPesquisa.innerHTML = `No ${numeroJogo}º jogo, o time Empatou `
+        }else {
+            exibirPesquisa.innerHTML = `No ${numeroJogo}º jogo, o time Perdeu `
+        }
+    }
+</script>
