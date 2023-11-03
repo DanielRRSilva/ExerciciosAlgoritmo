@@ -17,8 +17,8 @@
 </html>
 
 <script>
-    listaNomeProduto = []
-    listaPrecoCompra = []
+    var listaNomeProduto = []
+    var listaPrecoCompra = []
     var maiorPreco = 0 
     var menorPreco = 0
     var posicaoProdutoMaisCaro = 0
@@ -46,13 +46,13 @@
             if(listaPrecoCompra[posicaoMaior] > maiorPreco) {
                 maiorPreco = listaPrecoCompra[posicaoMaior]
                 menorPreco = listaPrecoCompra[posicaoMaior]
-                posicaoProdutoMaisCaro += 1
+                posicaoProdutoMaisCaro = posicaoMaior
             }
         }
         for(var posicaoMenor = 0; posicaoMenor < listaPrecoCompra.length; posicaoMenor += 1) {
             if(listaPrecoCompra[posicaoMenor] <= menorPreco) {
                 menorPreco = listaPrecoCompra[posicaoMenor]
-                posicaoProdutoMaisBarato += 1
+                posicaoProdutoMaisBarato = posicaoMenor
             }
         }
         exibirRelatorio.innerHTML +=
