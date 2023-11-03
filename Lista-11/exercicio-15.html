@@ -19,10 +19,6 @@
 <script>
     var listaNomeProduto = []
     var listaPrecoCompra = []
-    var maiorPreco = 0 
-    var menorPreco = 0
-    var posicaoProdutoMaisCaro = 0
-    var posicaoProdutoMaisBarato = 0
     var somaPrecoCompra = 0
     function registrar() {
         var preco = Number(precoCompra.value)
@@ -32,6 +28,10 @@
     }
     function relatorio() {
         var somaValorVenda = 0
+        var maiorPreco = 0 
+        var menorPreco = listaPrecoCompra[0]
+        var posicaoProdutoMaisCaro = 0
+        var posicaoProdutoMaisBarato = 0
         exibirRelatorio.innerHTML = ``
         exibirRelatorio.innerHTML = `Total de produtos: ${listaNomeProduto.length}<br>`
         for(var repeticao = 0; repeticao < listaNomeProduto.length; repeticao += 1) {
@@ -41,18 +41,12 @@
             Produto${repeticao + 1}: ${listaNomeProduto[repeticao]}<br>
             Preço de compra: ${listaPrecoCompra[repeticao]}. Vender por R$${listaPrecoCompra[repeticao]*1.25}<br><br>
             `
-        }
-        for(var posicaoMaior = 0; posicaoMaior < listaPrecoCompra.length; posicaoMaior += 1) {
-            if(listaPrecoCompra[posicaoMaior] > maiorPreco) {
-                maiorPreco = listaPrecoCompra[posicaoMaior]
-                menorPreco = listaPrecoCompra[posicaoMaior]
-                posicaoProdutoMaisCaro = posicaoMaior
-            }
-        }
-        for(var posicaoMenor = 0; posicaoMenor < listaPrecoCompra.length; posicaoMenor += 1) {
-            if(listaPrecoCompra[posicaoMenor] <= menorPreco) {
-                menorPreco = listaPrecoCompra[posicaoMenor]
-                posicaoProdutoMaisBarato = posicaoMenor
+            if(menorPreco >= listaPrecoCompra[repeticao]) {
+                menorPreco = listaPrecoCompra[repeticao]
+                posicaoProdutoMaisBarato = repeticao
+            }else {
+                maiorPreco = listaPrecoCompra[repeticao]
+                posicaoProdutoMaisCaro = repeticao
             }
         }
         exibirRelatorio.innerHTML +=
