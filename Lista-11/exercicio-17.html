@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio17</title>
+</head>
+<body>
+    <div id="main">
+        <h1>Análise de performace de Alunos - Registro</h1><br>
+        <label for="nomeAluno">Entre com o Nome do aluno:</label>
+        <input type="text" id="nomeAluno"><br>
+        <label for="notaAluno">Entre com a Nota do aluno:</label>
+        <input type="text" id="notaAluno"><br><br>
+        <button onclick="registrarAluno()">Registrar</button>
+        <button onclick="analisar()">Analisar</button>
+    </div>
+    <div id="exibirAlunos"></div>
+</body>
+</html>
+
+<script>
+    var listaAlunos = []
+    var listaNotas = []
+    function registrarAluno() {
+        var nome = nomeAluno.value
+        var nota = Number(notaAluno.value)
+        if(nome == "") {
+            alert(`nome inválido!`)
+        }else if(nota < 0 || nota > 10) {
+            alert(`nota inválida! A nota deve estar entre 0 e 10!`)
+        }else{
+            listaAlunos.push(nome)
+            listaNotas.push(nota)
+            exibirAlunos.innerHTML = ``
+            for(var posicao = listaAlunos.length - 1; posicao >= 0; posicao --) {
+                exibirAlunos.innerHTML += `${listaAlunos[posicao]} ${listaNotas[posicao]}<br>`
+            }
+        }
+    }
+    function analisar() {
+        main.innerHTML =
+        `
+        <h1>Análise de performace de Alunos - Pesquisa</h1><br>
+        <label for="">Entre com o intervalo de notas:</label>
+        <input type="text" id="menor">
+        <input type="text" id="maior"><br><br>
+        <button onclick="pesquisar()">Pesquisar</button>
+        `
+        exibirAlunos.innerHTML = ``
+    }
+    function pesquisar() {
+        var menorNumero = Number(menor.value)
+        var maiorNumero = Number(maior.value)
+        var alunosListado = 0
+        var maiorNota = 0
+        var menorNota = listaNotas[0]
+        var somaNotas = 0
+        if(menorNumero < 0 || menorNumero > 10) {
+            alert(`menor número inválido! O número deve estar entre 0 e 10!`)
+        }else if(maiorNumero < 0 || maiorNumero > 10) {
+            alert(`maior número inválido! O número deve estar entre 0 e 10!`)
+        }else {
+            exibirAlunos.innerHTML = ``
+            for(var posicao = 0; posicao < listaNotas.length; posicao ++) {
+                somaNotas += listaNotas[posicao]
+                if(listaNotas[posicao] >= menorNumero && listaNotas[posicao]<= maiorNumero) {
+                    alunosListado += 1
+                    exibirAlunos.innerHTML +=
+                    `
+                    O aluno ${listaAlunos[posicao]} ficou com a nota ${listaNotas[posicao]}<br>
+                    `
+                }
+                if(listaNotas[posicao] > maiorNota) {
+                    maiorNota = listaNotas[posicao]
+                }
+                if(listaNotas[posicao] < menorNota) {
+                    menorNota = listaNotas[posicao]
+                }
+            }
+            exibirAlunos.innerHTML +=
+            `
+            Total de alunos registrados: ${listaAlunos.length}<br>
+            Total de alunos listados: ${alunosListado}<br>
+            Maior nota: ${maiorNota}<br>
+            Menor nota: ${menorNota}<br>
+            Média da Nota: ${(somaNotas / listaNotas.length).toFixed(2)}
+            `
+        }
+    }
+</script>

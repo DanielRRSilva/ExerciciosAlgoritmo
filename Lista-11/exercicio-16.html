@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio16</title>
+</head>
+<body>
+    <label for="numeroUsuario">Digite um número qualquer:</label>
+    <input type="text" id="numeroUsuario"><br>
+    <button onclick="cadastrarNumero()">Análisar histórico</button><br><br>
+    <div id="exibirNumeros"></div>
+</body>
+</html>
+
+<script>
+    var listaNumeros = []
+    function cadastrarNumero() {
+        listaNumeros.push(Number(numeroUsuario.value))
+        var maiorNumero = 0
+        var menorNumero = listaNumeros[0]
+        exibirNumeros.innerHTML = ``
+        for(var posicao = 0; posicao < listaNumeros.length; posicao += 1) {
+            exibirNumeros.innerHTML += `${posicao + 1}°Número: ${listaNumeros[posicao]}<br>`
+            if(listaNumeros[posicao] > maiorNumero) {
+                maiorNumero = listaNumeros[posicao]
+            }
+            if(listaNumeros[posicao] < menorNumero) {
+                menorNumero = listaNumeros[posicao]
+            }
+        }
+        exibirNumeros.innerHTML +=
+        `
+        Maior: ${maiorNumero}<br>
+        Menor: ${menorNumero}<br>
+        `
+    }
+</script>
