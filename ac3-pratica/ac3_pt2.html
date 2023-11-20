@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC3-Parte2</title>
+</head>
+<body>
+    <label for="codigoProduto">Informe o código do produto:</label>
+    <input type="text" id="codigoProduto"><br>
+    <label for="nomeProduto">Informe o nome do produto:</label>
+    <input type="text" id="nomeProduto"><br>
+    <label for="qtdEmEstoque">Informe a quantidade em estoque:</label>
+    <input type="text" id="qtdEmEstoque"><br><br>
+    <button onclick="salvarProduto()">Salvar Produto</button>
+    <button onclick="verEstoque()">Ver estoque</button><br><br>
+    <div id="exibirMensagem"></div>
+</body>
+</html>
+
+<script>
+    var listaCodigo = []
+    var listaNome = []
+    var listaqtdEstoque = []
+    var listaPreco = []
+    function salvarProduto() {
+        var codigo = codigoProduto.value
+        var nome = nomeProduto.value
+        var qtdEstoque = Number(qtdEmEstoque.value)
+
+        if(codigo.trim() == "") {
+            alert(`Código inválido para o produto`)
+        }else if(nome == "") {
+            alert(`Nome inválido para o produto`)
+        }else if(qtdEstoque <= 0) {
+            alert(`Quantidade inválida para o produto`)
+        }else {
+            var prodExiste = false
+            for(var posicao = 0; posicao < listaCodigo.length; posicao ++) {
+                if(listaCodigo[posicao] == codigo) {
+                    prodExiste = true
+                }
+                if(prodExiste) {
+                    listaqtdEstoque[posicao] = listaqtdEstoque[posicao] + qtdEstoque
+                    alert(`O produto de código ${codigo} teve sua quantidade aumentada.`)
+                    break
+                }
+            }
+            if(prodExiste == false) {
+                listaCodigo.push(codigo)
+                listaNome.push(nome)
+                listaqtdEstoque.push(qtdEstoque)
+                alert(`Produto cadastrado com sucesso.`)
+                var preco = Math.random()*1000
+                listaPreco.push(preco.toFixed(2))
+            }
+        }
+    }
+    function  verEstoque() {
+        exibirMensagem.innerHTML = ``
+        for(var posicao = 0; posicao , posicao < listaCodigo.length; posicao++) {
+            exibirMensagem.innerHTML +=
+            `
+            Código: ${listaCodigo[posicao]}<br>
+            Nome: ${listaNome[posicao]}<br>
+            Quantidade: ${listaqtdEstoque[posicao]}<br>
+            Preço: ${listaPreco[posicao]}R$<br><br>
+            `
+        }
+    }
+ </script>

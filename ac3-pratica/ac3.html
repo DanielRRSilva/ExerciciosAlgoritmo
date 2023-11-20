@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC3 parte1</title>
+</head>
+<body>
+    <label for="nomeAstronauta">Informe o nome do astronauta:</label>
+    <input type="text" id="nomeAstronauta"><br><br>
+    <label for="qtdDias">Informe a quantidade de dias:</label>
+    <input type="text" id="qtdDias"><br><br>
+    <label for="qtdHoras">Informe a quantidade de horas:</label>
+    <input type="text" id="qtdHoras"><br><br>
+    <label for="qtdMinutos">Informe a quantidade de minutos:</label>
+    <input type="text" id="qtdMinutos"><br><br>
+    <button onclick="registrarViagem()">Registrar viagem</button>
+    <button onclick="relatorioViagem()">Relatório viagem</button><br><br>
+    <div id="exibirRelatorio"></div>
+</body>
+</html>
+
+<script>
+    var listaNomes = []
+    var listaDias = []
+    var listaHoras = []
+    var listaMinutos = []
+    function registrarViagem() {
+        var nome = nomeAstronauta.value
+        var dias = Number(qtdDias.value)
+        var horas = Number(qtdHoras.value)
+        var minutos = Number(qtdMinutos.value)
+
+        if(dias > 0 || horas > 0 || minutos > 0) {
+            listaNomes.push(nome)
+            listaDias.push(dias)
+            listaHoras.push(horas)
+            listaMinutos.push(minutos)
+        }else {
+            alert(`Informe um tempo de viagem valido!!`)
+        }
+    }
+
+    function relatorioViagem() {
+        var minutosDia = 0
+        var minutosHora = 0
+        var minutosTerra = 0
+        var minutosTotal = 0
+        var anos = 0
+
+        exibirRelatorio.innerHTML = ``
+        for(var posicao = 0; posicao < listaNomes.length; posicao ++) {
+            minutosDia = (listaDias[posicao] * 1440)*49
+            minutosHora = (listaHoras[posicao] * 60)*49
+            minutosTerra = listaMinutos[posicao] * 49
+            minutosTotal = minutosDia + minutosHora + minutosTerra
+            anos = minutosTotal / 525600 
+            
+            exibirRelatorio.innerHTML += 
+            `
+            Viagem ${posicao + 1}:<br>
+            Astronauta ${listaNomes[posicao]} ficou fora por pelo menos ${anos} anos no tempo da Terra.<br>
+            A criança que nasceu quando ele saiu provavelmente está assim:<br>     
+            `
+            if(anos <= 13) {
+                exibirRelatorio.innerHTML += `<img src="bartCrianca.png"><br><br>`
+            }else if (anos <= 30) {
+                exibirRelatorio.innerHTML +=`<img src="bartAdolecente.png"><br><br>`
+            }else if(anos <= 65) {
+                exibirRelatorio.innerHTML +=`<img src="bartAdulto.png"><br><br>`
+            }else if(anos <= 100) {
+                exibirRelatorio.innerHTML +=`<img src="barIdoso.png"><br><br>`
+            }else {
+                exibirRelatorio.innerHTML +=`<img src="bartEsqueleto.png"><br><br>`
+            }
+        }
+    }
+ </script>
